@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ItemTypes
 {
     public enum ItemType
@@ -12,21 +13,18 @@ public class ItemTypes
         Bow,
         Bag,
         Belt,
-        Book,
-        Bracers,
-        Cloak,
-        Coin,
-        Gem,
-        Gloves,
-        Helmet,
-        Potion,
-        Ingot
+        
 
 
     }
 
     public ItemType itemType;
     public int amount;
+    
+    void Start()
+    {
+        ItemType rndItemType = (ItemType)Random.Range(0, 3);
+    }
 
     public Sprite GetSprite()
     {
@@ -41,4 +39,15 @@ public class ItemTypes
 
         }
     }
+
+    public ItemType GetRandomObject()
+    {
+        var enumLenght = System.Enum.GetNames(typeof(ItemType)).Length;
+        return  (ItemType)Random.Range(0, enumLenght);
+        
+    }
+
+  
+
+
 }

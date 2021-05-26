@@ -1,29 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private UIýnventory uiInventory;
+    LazyValue<UIýnventory> uiInventory;
     private Inventory inventory;
+    [SerializeField] private ItemTypes itemTake;
+    
 
     // Start is called before the first frame update
     void Awake()
     {
+        itemTake = new ItemTypes();
         inventory = new Inventory();
-        uiInventory.SetInventory(inventory);
+        uiInventory = new LazyValue<UIýnventory>(GetUIInventory);
+    }
+
+    private UIýnventory GetUIInventory()
+    {
+        return GameObject.Find("UIInventory").GetComponent<UIýnventory>();
     }
 
     private void Start()
     {
-        //uiInventory.SetInventory(inventory);
+        uiInventory.value.SetInventory(inventory);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            uiInventory.SetInventory(inventory);
+            uiInventory.value.SetInventory(inventory);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+
+            var rndItemName = itemTake.GetRandomObject();
+            Debug.Log(rndItemName);
+            inventory.AddItem(new ItemTypes { itemType = rndItemName });
+            
         }
     }
 

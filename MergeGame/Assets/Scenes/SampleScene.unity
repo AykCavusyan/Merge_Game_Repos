@@ -376,7 +376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6accc7885fc6f044bc7c20cca78169f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiInventory: {fileID: 1336710235}
 --- !u!4 &987683842
 Transform:
   m_ObjectHideFlags: 0
@@ -389,7 +388,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1044010074
 GameObject:
@@ -645,7 +644,7 @@ RectTransform:
   m_Children:
   - {fileID: 1336710234}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
